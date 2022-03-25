@@ -1,7 +1,7 @@
 const mojangson = require('mojangson')
 const vsprintf = require('sprintf-js').vsprintf
 
-const { MessageBuilder } = require('./MessageBuilder')(mcVersion)
+const { MessageBuilder } = require('./MessageBuilder')('1.8.9')
 
 class ChatMessage {
     constructor (message, displayWarning = false) {
