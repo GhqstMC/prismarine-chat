@@ -1,10 +1,4 @@
-declare const loader: (mcVersion: string) => typeof ChatMessage
-
-export default loader
-
 export declare class ChatMessage {
-  // for export
-  static MessageBuilder: typeof MessageBuilder
 
   /**
    * @param message content of ChatMessage
