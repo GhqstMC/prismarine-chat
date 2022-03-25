@@ -1,18 +1,9 @@
 const mojangson = require('mojangson')
 const vsprintf = require('sprintf-js').vsprintf
 
-module.exports = loader
+const { MessageBuilder } = require('./MessageBuilder')(mcVersion)
 
-function loader (mcVersion) {
-  const mcData = require('minecraft-data')(mcVersion)
-  const defaultLang = mcData.language
-  const { MessageBuilder } = require('./MessageBuilder')(mcVersion)
-
-  /**
-   * ChatMessage Constructor
-   * @param {String|Object|Number} message content of ChatMessage
-   */
-  class ChatMessage {
+class ChatMessage {
     constructor (message, displayWarning = false) {
       if (typeof message === 'string') {
         if (message === '') {
@@ -379,6 +370,8 @@ function loader (mcVersion) {
     }
   }
 
-  ChatMessage.MessageBuilder = MessageBuilder
-  return ChatMessage
+module.exports = {
+  ChatMessage,
+  MessageBuilder
 }
+
