@@ -315,7 +315,7 @@ class ChatMessage {
       return message
     }
 
-    toAnsi (lang = 'en-US') {
+    toAnsi (lang = 'en-US', message) {
       const codes = {
         '§0': '\u001b[30m',
         '§1': '\u001b[34m',
@@ -341,7 +341,7 @@ class ChatMessage {
         '§r': '\u001b[0m'
       }
 
-      let message = this.toMotd(lang)
+      if (message == null) message = this.toMotd(lang)
       for (const k in codes) {
         message = message.replace(new RegExp(k, 'g'), codes[k])
       }
