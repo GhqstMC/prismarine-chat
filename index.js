@@ -219,7 +219,7 @@ class ChatMessage {
      * @param  {Number} idx Index of the part
      * @return {String}
      */
-    getText (idx, lang = defaultLang) {
+    getText (idx, lang = 'en-US') {
       // If the index is not defined is is invalid, return toString
       if (typeof idx !== 'number') return this.toString(lang)
       // If we are not a translating message, return the text
@@ -239,7 +239,7 @@ class ChatMessage {
      * Flattens the message in to plain-text
      * @return {String}
      */
-    toString (lang = defaultLang) {
+    toString (lang = 'en-US') {
       let message = ''
       if (typeof this.text === 'string' || typeof this.text === 'number') message += this.text
       else if (this.with) {
@@ -260,7 +260,7 @@ class ChatMessage {
       return this.toString()
     }
 
-    toMotd (lang = defaultLang, parent = {}) {
+    toMotd (lang = 'en-US', parent = {}) {
       const codes = {
         color: {
           black: '§0',
@@ -315,7 +315,7 @@ class ChatMessage {
       return message
     }
 
-    toAnsi (lang = defaultLang) {
+    toAnsi (lang = 'en-US') {
       const codes = {
         '§0': '\u001b[30m',
         '§1': '\u001b[34m',
